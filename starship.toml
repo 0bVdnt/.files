@@ -1,131 +1,184 @@
-[bun]
-format = "via [$symbol]($style)"
+add_newline = true
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$nodejs\
+$golang\
+$haskell\
+$rust\
+$ruby\
+$aws\
+$c\
+$docker_context\
+$jobs\
+$cmd_duration\
+$line_break\
+$character"""
+# A minimal left prompt
+palette = "onedark"
+# move the rest of the prompt to the right
+right_format = """$all"""
+command_timeout = 2005
+# ~/.config/starship.toml
 
-[buf]
-format = "via [$symbol]($style)"
+[c]
+format = 'via [$name $version]($style)'
 
-[cmake]
-format = "via [$symbol]($style)"
+[character]
+success_symbol = "[󰘧](bold bright-green)"
+error_symbol = "[󰘧](bold bright-red)"
+# [character]
+# vicmd_symbol = "[N] >>>"
+# success_symbol = '[➜](bold green)'
 
-[cobol]
-format = "via [$symbol]($style)"
+#
+# [aws]
+# format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
+# disabled = false
+# style = 'bold blue'
+# symbol = " "
 
-[crystal]
-format = "via [$symbol]($style)"
 
-[daml]
-format = "via [$symbol]($style)"
+# [kubernetes]
+# symbol = '☸ '
+# disabled = true
+# detect_files = ['Dockerfile']
+# format = '[$symbol$context( \($namespace\))]($style) '
+# contexts = [
+#   { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "omerxx", symbol = " " },
+# ]
 
-[dart]
-format = "via [$symbol]($style)"
+#
+# [palettes.catppuccin_mocha]
+# rosewater = "#f5e0dc"
+# flamingo = "#f2cdcd"
+# pink = "#f5c2e7"
+# mauve = "#cba6f7"
+# red = "#f38ba8"
+# maroon = "#eba0ac"
+# peach = "#fab387"
+# yellow = "#f9e2af"
+# green = "#a6e3a1"
+# teal = "#94e2d5"
+# sky = "#89dceb"
+# sapphire = "#74c7ec"
+# blue = "#89b4fa"
+# lavender = "#b4befe"
+# text = "#cdd6f4"
+# subtext1 = "#bac2de"
+# subtext0 = "#a6adc8"
+# overlay2 = "#9399b2"
+# overlay1 = "#7f849c"
+# overlay0 = "#6c7086"
+# surface2 = "#585b70"
+# surface1 = "#45475a"
+# surface0 = "#313244"
+# base = "#1e1e2e"
+# mantle = "#181825"
+# crust = "#11111b"
 
-[deno]
-format = "via [$symbol]($style)"
+[palettes.onedark]
+black = "#282c34"
+red = "#e06c75"
+green = "#98c379"
+yellow = "#e5c07b"
+blue = "#61afef"
+purple = "#c678dd"
+cyan = "#56b6c2"
+white = "#abb2bf"
+gray = "#5c6370"
+bright-black = "#3e4451"
+bright-red = "#be5046"
+bright-green = "#98c379"
+bright-yellow = "#d19a66"
+bright-blue = "#61afef"
+bright-purple = "#c678dd"
+bright-cyan = "#56b6c2"
+bright-white = "#ffffff"
 
-[dotnet]
-format = "[$symbol(🎯 $tfm )]($style)"
 
-[elixir]
-format = 'via [$symbol]($style)'
+[directory]
+style = 'bold fg:dark_blue'
+format = '[$path ]($style)'
+truncation_length = 3
+truncation_symbol = '…/'
+truncate_to_repo = false
 
-[elm]
-format = 'via [$symbol]($style)'
+[directory.substitutions]
+'Documents' = '󰈙'
+'Downloads' = ' '
+'Music' = ' '
+'Pictures' = ' '
 
-[erlang]
-format = 'via [$symbol]($style)'
+[git_branch]
+style = 'fg:green'
+symbol = ' '
+format = '[on](white) [$symbol$branch ]($style)'
 
-[fennel]
-format = 'via [$symbol]($style)'
+[git_status]
+style = 'fg:red'
+format = '([$all_status$ahead_behind]($style) )'
 
-[gleam]
-format = 'via [$symbol]($style)'
-
-[golang]
-format = 'via [$symbol]($style)'
-
-[gradle]
-format = 'via [$symbol]($style)'
-
-[haxe]
-format = 'via [$symbol]($style)'
-
-[helm]
-format = 'via [$symbol]($style)'
-
-[java]
-format = 'via [$symbol]($style)'
-
-[julia]
-format = 'via [$symbol]($style)'
-
-[kotlin]
-format = 'via [$symbol]($style)'
-
-[lua]
-format = 'via [$symbol]($style)'
-
-[meson]
-format = 'via [$symbol]($style)'
-
-[nim]
-format = 'via [$symbol]($style)'
-
-[nodejs]
-format = 'via [$symbol]($style)'
-
-[ocaml]
-format = 'via [$symbol(\($switch_indicator$switch_name\) )]($style)'
-
-[opa]
-format = 'via [$symbol]($style)'
-
-[perl]
-format = 'via [$symbol]($style)'
-
-[php]
-format = 'via [$symbol]($style)'
-
-[pulumi]
-format = 'via [$symbol$stack]($style)'
-
-[purescript]
-format = 'via [$symbol]($style)'
+[fill]
+symbol = ' '
 
 [python]
-format = 'via [$symbol]($style)'
+style = 'teal'
+symbol = ' '
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+pyenv_version_name = true
+pyenv_prefix = ''
 
-[quarto]
-format = 'via [$symbol]($style)'
+[lua]
+format = '[$symbol($version )]($style)'
+symbol = ' '
 
-[raku]
-format = 'via [$symbol]($style)'
+[nodejs]
+style = 'blue'
+symbol = ' '
 
-[red]
-format = 'via [$symbol]($style)'
+[golang]
+style = 'bold cyan'
+symbol = ' '
 
-[rlang]
-format = 'via [$symbol]($style)'
-
-[ruby]
-format = 'via [$symbol]($style)'
+[haskell]
+style = 'blue'
+symbol = ' '
 
 [rust]
-format = 'via [$symbol]($style)'
+style = 'orange'
+symbol = ' '
 
-[solidity]
-format = 'via [$symbol]($style)'
+[ruby]
+style = 'blue'
+symbol = ' '
 
-[typst]
-format = 'via [$symbol]($style)'
+[package]
+symbol = '󰏗 '
 
-[swift]
-format = 'via [$symbol]($style)'
+[aws]
+symbol = ' '
+style = 'yellow'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
 
-[vagrant]
-format = 'via [$symbol]($style)'
+[docker_context]
+symbol = ' '
+style = 'fg:#06969A'
+format = '[$symbol]($style) $path'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_extensions = ['Dockerfile']
 
-[vlang]
-format = 'via [$symbol]($style)'
+[jobs]
+symbol = ' '
+style = 'red'
+number_threshold = 1
+format = '[$symbol]($style)'
 
-[zig]
-format = 'via [$symbol]($style)'
+[cmd_duration]
+min_time = 500
+style = 'fg:gray'
+format = '[$duration]($style)'
